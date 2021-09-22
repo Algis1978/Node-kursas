@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "faker": "^5.5.3",
     "path": "^0.12.7"
   }
 }
