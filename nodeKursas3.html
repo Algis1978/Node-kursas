@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Node pradžia</title>
+    <style>
+
+    </style>
+</head>
+<body onload="myScript ()">
+    <h1>Vartotojo moduliai</h1>
+
+    <p>Rašant programas JS kodas greitai išsiplečia ir tampa sunku jį perskaityti vienoje byloje. Yra įprasta rašyti atskiras JS bylas ir susieti vieną su kita. <p>Susikurkite savo JS bylą tame pačiame darbo kataloge. Pavyzdžiui, aš susikursiu bylą <em>mat.js</em>, kurioje bus keletas matematinių funkcijų:</p>
+    <em>function sudetis(a, b) {return a+b;}<br>
+        function atimtis(a, b) {return a-b;}</em>
+        <h2>Duomenų išvedimas</h2>
+    <p>Surinkus <em>module.exports</em> savybę ji paruoš priskirtą kintamąjį išvedimui į bylos išorę:</p>
+    <em>module.exports=sudetis;<br>
+        module.exports=atimtis;</em>
+    <p>Kelis kintamuosius galima sublokuoti:</p>
+    <em>module.exports={sudetis, atimtis);</em>
+        <h2>Duomenų priėmimas</h2>
+    <p>Priėmimo byloje <em>pirmas.js</em> nurodau išvestus duomenis priimti su raktažodžiu <em>require</em> ir nurodant kelią iki JS bylos. Atkeipkit dėmesį, kad kelias nurodomas tarp "" tekstinių kabučių.</p>
+
+    <em>const mat = require("./mat.js");<br>
+    console.log(mat.sudetis(6, 4));<br>
+    console.log(mat.atimtis(6, 4));</em>
+    <p>Aukštesniame kode kintamajam „mat“ buvo priskirti bylos <em>mat.js</em> išvesti duomenys, kurie tapo „mat“ savybėmis. Su <em>console.log()</em> galime pasitikrinti, ar <em>mat.js</em> bylos funkcijos veikia. Pasitikrinkite tai savarankiškai terminale.</p>
+    <p>Destruktūrizuojant „mat“ objektą galima jo savybes paversti atskirais kintamaisiais:</p>
+    <em>const { sudetis, atimtis } = mat;</em>
+        <h2>Kintamųjų pavadinimų keitimas išvedimo byloje</h2>
+    <p>Tiek išvedant, tiek priimant galima pakeisti išvedamo ir priimamo kintamojo pavadinimus.</p>
+    <p>Išvedimo byloje keičiami kintamųjų pavadinimai:</p>
+    <em>module.exports.kitaSudetis=sudetis;<br>
+        module.exports.kitaAtimtis=atimtis;</em>
+    <p>Išvedimo bylos bloke:</p>
+    <em>module.exports={kitaSudetis:sudetis, kitaAtimtis:atimtis}</em>
+    <p>Tokiu atveju priėmimo byloje reikia nurodyti naujus kintamųjų pavadinimus.</p>
+    <h2>Kintamųjų pavadinimų keitimas įvedimo byloje</h2>
+    <p>Įvedimo byloje kintamųjų pavadinimus galima pakeisti destruktūrizuojant:</p>
+    <em>const { sudetis:treciaSudetis, atimtis:treciaAtimtis } = mat;</em>
+    <p>Savarankiškai suveskite kodą ir patikrinkite jo veikimą terminale:</p>
+    <em>console.log(treciaSudetis(6, 4));<br>
+        console.log(treciaAtimtis(6, 4));</em><br>
+    <p>Kintamųjų pavadinimų keitimas naudingas, kai siejant skirtingas JS bylas jose pasitaiko vienodo pavadinimo išvedamų kintamųjų.</p>
+    <a href="./nodeKursas4.html">Sekantis >>></a>
+</body>
+</html>
