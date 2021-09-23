@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Node pradžia</title>
+    <title>Node antra pamoka</title>
     <style>
 
     </style>
@@ -12,42 +12,45 @@
 <body onload="myScript ()">
     <h1>Node moduliai</h1>
 
-    <p>Node moduliai (<m>module</m>) yra kitos JS bylos, kurias galima panaudoti kuriant savo programas. Jie gali būti suinstaliuoti kartu su Node paketu, susikurti savo arba sukurti kitų programuotojų. Pastaruoju atveju šios bylos vadinamos bibliotekomis (<em>library</em>) arba paketais (<em>package</em>).</p>
+    <p>Node moduliai (<em>module</em>) yra kitos JS bylos, kurias galima panaudoti kuriant savo programas. Jie gali būti įdiegti kartu su Node paketu, susikurti savo arba sukurti kitų programuotojų. Pastaruoju atveju šios bylos vadinamos bibliotekomis (<em>library</em>) arba paketais (<em>package</em>).</p>
 
     <h2>NPM inicijavimas</h2>
-    <p>Instaliuoti Node modulius galima su Node paketų menedžeriu NPM (Node Package Manager)</p>
+    <p>Įdiegti Node modulius galima su Node paketų valdikliu NPM (Node Package Manager)</p>
     <p>Inicijuokite NPM veikimą su komanda terminalo eilutėje:</p>
     <em>npm init</em>
-    <p>Nuspauskite 'Enter' ir jums terminale bus pasiūlyta įvesti jūsų projekto savybių vertes. Jei nenorite į tai gilintis, ties kiekvienu punktu nuspauskit 'Enter'. Trumpesnis kelias inicijuoti NPM yra surinkus kodą <em>npm init -y</em></p>
+    <p>Nuspauskite 'Enter' ir jums terminale bus pasiūlyta įvesti jūsų projekto savybių vertes. Jei nenorite į tai gilintis (pvz., jei neruošiate savo projekto komerciniam naudojimui), ties kiekvienu punktu nuspauskite 'Enter'. Trumpesnis kelias inicijuoti NPM yra surinkus kodą <em>npm init -y</em></p>
     <p>Po šios komandos jūsų darbo kataloge atsiras byla <em>package.json</em>, kurioje bus surašytos jūsų projekto savybės.</p>
-    <h2>Node modulių instaliavimas ir susiejimas</h2>
+
+    <h2>Node modulių įdiegimas ir susiejimas su JS byla</h2>
     
-    <p>Vienas iš Node modulių yra pavadinimu „path“. Suinstaliuokite jį su komanda:</p>
+    <p>Vienas iš Node modulių yra pavadinimu „path“. Įdiekite jį su komanda:</p>
     <em>npm install path</em>
     
-    <p>Jūs pastebėsit, kad byloje <em>package.json</em> atsirado nauja savybė „dependencies“ su verte „path“. Tai rodo, kad jūsų projektui vykdyti reikės Node modulio „path“ (jei jis bus realiai panaudotas).</p>
+    <p>Jūs pastebėsit, kad byloje <em>package.json</em> atsirado nauja savybė „dependencies“ su savybe „path“. Tai rodo, kad jūsų projektui vykdyti reikės Node modulio „path“ (jei jis bus realiai panaudotas).</p>
     <p>Taip pat jūsų darbo kataloge atsiras <em>package-lock.json</em> byla, kuri seks modulių versijų suderinamumą.</p>
-    <p>Ir jūsų darbo kataloge atsiras „node_modules“ katalogas su Node moduliais.</p>
+    <p>Ir jūsų darbo kataloge atsiras „node_modules“ katalogas su iš interneto atsisiųstais Node moduliais.</p>
 
     <p>Moduliai su JS byla susiejami su <em>require</em> raktažodžiu. Surinkite šį kodą bylos <em>pirmas.js</em> kodo eilutėje ir išsaugokite bylą:</p>
-    <em>const path = require("path");</em>
-    <p>Šiuo kodu kintamajam „path“ buvo priskirtos modulio „path“ savybės, kurias galima naudoti tolimesniame kode</p>
+    <em>const myPath= require("path");</em>
+    <p>Šiuo kodu kintamajam „myPath“ buvo priskirtos modulio „path“ savybės, kurias galima naudoti tolimesniame kode</p>
+
     <h2>Modulio savybių panaudojimas</h2>
     <p>Modulis „path“ skirtas darbui su katalogų ir bylų pavadinimais. Pavyzdžiui, jo savybė <em>.extname</em> grąžina bylos tipo praplėtimo užrašymą. Toliau byloje <em>pirmas.js</em> surinkite šį kodą:</p>
     <em>const byla = "pirmas.html";<br>
-    console.log(path.extname(byla));</em>
+    console.log(myPath.extname(byla));</em>
     <p>Patikrinkite rezultatą terminalo lange su komanda <em>node pirmas.js</em>. Jums turėtų būti parodytas rezultatas: <em>.html</em></p>
-    <p>Kaip jūs pastebėjote, dirbant su Node nuolat reikia šokinėti tarp JS bylos kodo ir teminalo langų reaktoriuje, tad turėkite juos šalia vienas kito.</p>
-    <p>Taipogi, kad kiekvieną kartą nerinkti tos pačios komandos terminalo lange redaktoriai turi trumpojo iššaukimo komandą, kuri priklauo nuo redaktoriaus nustatymų, pvz., tai gali būti rodyklėlės viršun klavišo nuspaudimas, kuris jums išves paskutinę komandą, šiuo atveju <em>node pirmas.js</em>.</p>
-    <h1>Trečiųjų šalių moduliai</h1>
-    <p>Kitų programuotojų sukurtas bibliotekas galima susieti su savo JS projektais lygiai taip pat, kaip Node modulius.</p>
-    <p>Sakykime, aš noriu panaudoti savo projekte modulį pavadinimu „faker“, kurs generuoja netikrus žmonių duomenis. Instaliuoju terminale su NPM:</p>
-    <em>npm install path</em>
-    <p>Jūs turėtumėte rasti „faker“ katalogą tarp Node modulių ir <em>package.json</em> byloje tarp „dependencies“ savybių atsiras „faker“.</p>
-    <p>NPM instaliuoja paskutines Node modulių versijas, tačiau naudotojas gali specifiškai nurodyti jo norimą versiją už @ ženklo, pvz., <em>faker@5.1.3</em>
+    <p>Kaip jūs pastebėjote, dirbant su Node reikia šokinėti tarp JS bylos kodo ir terminalo langų redaktoriuje, tad turėkite abu langus šalia vienas kito savo vaizdo monitoriuje.</p>
+    <p>Taipogi, kad kiekvieną kartą nerinkti tos pačios komandos terminalo lange, redaktoriai turi trumpojo iššaukimo komandą, kuri priklauo nuo redaktoriaus nustatymų, pvz., VS Code redaktoriuje tai yra rodyklėlės „aukštyn“ klavišo nuspaudimas, kuris jums išves paskutinę komandą, šiuo atveju <em>node pirmas.js</em>.</p>
+    
+    <h2>Trečiųjų šalių moduliai</h2>
+    <p>Kitų programuotojų sukurtas bibliotekas galima susieti su savo JS projektais lygiai taip pat kaip Node modulius.</p>
+    <p>Sakykime, noriu panaudoti savo projekte modulį pavadinimu „faker“, kuris sukuria netikrus žmonių duomenis. Jį įdiegti galima su NPM komanda terminale:</p>
+    <em>npm install faker</em>
+    <p>Tai padarę jūs turėtumėte rasti „faker“ katalogą tarp Node modulių ir <em>package.json</em> byloje tarp „dependencies“ savybių atsiras „faker“.</p>
+    <p>NPM automatiškai ieško ir įdiegia paskutines Node modulių versijas, tačiau, jei reikia, naudotojas gali nurodyti įdiegti ankstesnę versiją nurodydamas ją už @ ženklo, pvz., <em>npm install faker@5.5.1</em>.
     </p>
     <h2>Apibendrinimas</h2>
-    <p>Node moduliai leidžia efektyviau naudotis JavaScript programavimu. Keičiantis projektais nebūtina persiųsti Node modulių. Byloje <em>package.json</em></p> saugoma informacija apie projektui reikalingus Node modulius ir juos galima atsisiųsti iš interneto. 
+    <p>Node moduliai leidžia efektyviau naudotis JavaScript programavimu. Keičiantis projektais nebūtina persiųsti Node modulių. Byloje <em>package.json</em> yra saugoma informacija apie projektui reikalingus Node modulius. Juos galima atsisiųsti iš interneto ir įdiegti su NPM.</p> 
     <a href="./nodeKursas3.html">Sekantis >>></a>
 </body>
 </html>

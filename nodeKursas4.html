@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Node ketvirta pamoka</title>
+    <style>
+
+    </style>
+</head>
+<body onload="myScript ()">
+    <h1>Komandinės eilutės programos</h1>
+
+    <p>Node leidžia vartotojui sąveikauti su JS programomis įvedant duomenis komandinėje eilutėje.</p>
+    <p>Šis procesas apima dvi dalis: JS programą ir vartotojo komandinėje eilutėje įvedamų duomenų (argumentų JS programai) apdorojimo programą.</p>
+
+    <h2>JS programos pavyzdys</h2>
+    <p>Sukurkime programą, kuri išves atsitiktinius sveikuosius skaičius nuo 1 iki 100. Tai galima padaryti panaudojus „Math.random()“ ir „Math.ceil()“  metodus:</p>
+    <em>function atsitiktinisSkaicius ( max = 100 ) <br>
+        { return Math.ceil( Math.random()*max ); };<br>
+        console.log(atsitiktinisSkaicius())</em>
+    <p>Pasitikrinkite terminale, ar išties programa grąžina sveikuosius skaičius tarp 1 ir 100.</p>
+
+    <h2>Komandinės eilutės duomenų programos pavyzdys</h2>
+    
+    <p>Vartotojo įvestus duomenis galima paimti iš komandinės eilutės naudojant <em>process.argv</em> metodą. Objektas <em>process</em> yra globalus Node objektas. Su <em>.argv</em> metodu yra pateikiamas masyvas, turintis du elementus: kelią iki Node įdiegimo katalogo ir kelią iki darbinės JS bylos. Įsitikinkite tuo terminale:</p>
+    <em>console.log(process.argv);</em>
+    
+    <p>Kai vartotojas komandinėje eilutėje pateikia papildomus duomenis, juos tampa įmanoma atskirti ir panaudoti JS programoje. Vietoj <em>node pirmas.js</em> komandinėje eilutėje surinkite <em>node pirmas.js TAIP NE</em> ir patikrinkite, ką terminale išves <em>process.argv</em> metodas.</p>
+    <p>Jūs pamatysite, kad išvestame masyve atsirado trečias ir ketvirtas elementai (nr. 2 ir nr. 3), kurių vertės yra "TAIP" ir "NE" atitinkamai.</p>
+
+    <p>Sakykime, norime, kad vartotojas galėtų kontroliuoti atsitiktinio skaičiaus generatoriaus intervalo viršutinę ribą „max“ iš komandinės eilutės. Tam prireiks trečiojo elemento <em>process.argv</em> masyve, ir jį galima išvesti destruktūrizacijos pagalba:</p>
+    <em>const [ pirmas, antras, vartotojoSkaicius ] = process.argv;
+        console.log(vartotojoSkaicius);</em>
+    <p>Dabar vartotojo įvestą skaičių nukreipus į atsitiktinio skaičiaus funkcijos parametrą „max“, šios funkcijos vertės bus tarp 1 ir vartotojo skaičiaus:</p>
+    <em>console.log( atsitiktinisSkaicius(vartotojoSkaicius) );</em>
+    <p>Dabar vartotojas gali nurodyti šį skaičių terminalo eilutėje. Sakykime, tai skaičius 20. Įveskite komandą terminalo eilutėje:</p>
+    <em>node pirmas.js 20</em>
+    <p>Kartodami šią eilutę jūs turite pastebėti, kad atsitiktinio skaičiaus funkcijos verčių ribos svyruoja tarp skaičių 1 ir 20.</p>
+
+    <a href="./nodeKursas5.html">Sekantis >>></a>
+</body>
+</html>
