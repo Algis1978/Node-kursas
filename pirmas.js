@@ -1,6 +1,5 @@
 console.log("Sveiki, mano vardas Algirdas");
 const myPath = require("path");
-const myFs = require("fs");
 
 const byla = "nodeKursas.html";
 console.log(myPath.extname(byla));
@@ -16,5 +15,13 @@ console.log(process.argv);
 
 const [ pirmas, antras, vartotojoSkaicius ] = process.argv;
 console.log( atsitiktinisSkaicius(vartotojoSkaicius) );
+
+const myFs = require("fs");
+!( myFs.existsSync("naujasKatalogas/kitasKatalogas") )?
+myFs.mkdirSync("naujasKatalogas/kitasKatalogas"):
+console.log("Katalogas jau yra");
+
+console.log(__dirname);
+console.log("df");
 
 
