@@ -31,7 +31,7 @@
     <p>Jūs pamatysite, kad išvestame masyve atsirado trečias ir ketvirtas elementai (nr. 2 ir nr. 3), kurių vertės yra "TAIP" ir "NE" atitinkamai.</p>
 
     <p>Sakykime, norime, kad vartotojas galėtų kontroliuoti atsitiktinio skaičiaus generatoriaus intervalo viršutinę ribą „max“ iš komandinės eilutės. Tam prireiks trečiojo elemento <em>process.argv</em> masyve, ir jį galima išvesti destruktūrizacijos pagalba:</p>
-    <em>const [ pirmas, antras, vartotojoSkaicius ] = process.argv;
+    <em>const [ pirmas, antras, vartotojoSkaicius ] = process.argv;<br>
         console.log(vartotojoSkaicius);</em>
     <p>Dabar vartotojo įvestą skaičių nukreipus į atsitiktinio skaičiaus funkcijos parametrą „max“, šios funkcijos vertės bus tarp 1 ir vartotojo skaičiaus:</p>
     <em>console.log( atsitiktinisSkaicius(vartotojoSkaicius) );</em>
