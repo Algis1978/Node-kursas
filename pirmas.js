@@ -21,7 +21,8 @@ const myFs = require("fs");
 myFs.mkdirSync("naujasKatalogas/kitasKatalogas"):
 console.log("Katalogas jau yra");
 
-console.log(__dirname);
-console.log("df");
+myFs.writeFileSync("testoByla.txt", "Tai yra testo bylos tekstas");
+console.log( myFs.readFileSync("testoByla.txt") );
+console.log( myFs.readFileSync("testoByla.txt", "utf8") );
 
 

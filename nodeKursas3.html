@@ -24,27 +24,29 @@
         <h2>Duomenų priėmimas</h2>
     <p>Priėmimo byloje <em>pirmas.js</em> nurodau išvestus duomenis priimti su raktažodžiu <em>require</em> ir nurodant kelią iki JS bylos. Atkeipkit dėmesį, kad kelias nurodomas tarp "" tekstinių kabučių.</p>
 
-    <em>const mat = require("./mat.js");<br>
-    console.log(mat.sudetis(6, 4));<br>
-    console.log(mat.atimtis(6, 4));</em>
-    <p>Aukštesniame kode kintamajam „mat“ buvo priskirti bylos <em>mat.js</em> išvesti duomenys, kurie tapo „mat“ savybėmis. Su <em>console.log()</em> galime pasitikrinti, ar <em>mat.js</em> bylos funkcijos veikia. Pasitikrinkite tai savarankiškai terminale.</p>
-    <p>Destruktūrizuojant „mat“ objektą galima jo savybes paversti atskirais kintamaisiais:</p>
-    <em>const { sudetis, atimtis } = mat;</em>
+    <em>const myMat = require("./mat.js");<br>
+    console.log( myMat.sudetis(6, 4) );<br>
+    console.log( myMat.atimtis(6, 4) );</em>
+    <p>Aukštesniame kode kintamajam „myMat“ buvo priskirti bylos <em>mat.js</em> išvesti duomenys, kurie tapo „myMat“ savybėmis. Su <em>console.log()</em> galime pasitikrinti, ar <em>mat.js</em> bylos funkcijos veikia. Pasitikrinkite tai savarankiškai terminale.</p>
+    <p>Destruktūrizuojant „myMat“ objektą galima jo savybes išvesti atskirais kintamaisiais:</p>
+    <em>const { sudetis, atimtis } = myMat;</em>
         <h2>Kintamųjų pavadinimų keitimas išvedimo byloje</h2>
     <p>Tiek išvedant, tiek priimant galima pakeisti išvedamo ir priimamo kintamojo pavadinimus.</p>
-    <p>Išvedimo byloje keičiami kintamųjų pavadinimai:</p>
+    <p>Išvedimo byloje (<em>mat.js</em>) keičiami kintamųjų pavadinimai:</p>
     <em>module.exports.kitaSudetis=sudetis;<br>
         module.exports.kitaAtimtis=atimtis;</em>
     <p>Išvedimo bylos bloke:</p>
     <em>module.exports={kitaSudetis:sudetis, kitaAtimtis:atimtis}</em>
     <p>Tokiu atveju priėmimo byloje reikia nurodyti naujus kintamųjų pavadinimus.</p>
     <h2>Kintamųjų pavadinimų keitimas įvedimo byloje</h2>
-    <p>Įvedimo byloje kintamųjų pavadinimus galima pakeisti destruktūrizuojant:</p>
-    <em>const { sudetis:treciaSudetis, atimtis:treciaAtimtis } = mat;</em>
+    <p>Įvedimo byloje (<em>pirmas.js</em>) kintamųjų pavadinimus galima pakeisti destruktūrizuojant:</p>
+    <em>const { sudetis:treciaSudetis, atimtis:treciaAtimtis } = myMat;</em>
     <p>Savarankiškai suveskite kodą ir patikrinkite jo veikimą terminale:</p>
-    <em>console.log(treciaSudetis(6, 4));<br>
-        console.log(treciaAtimtis(6, 4));</em><br>
+    <em>console.log( treciaSudetis(6, 4) );<br>
+        console.log( treciaAtimtis(6, 4) );</em><br>
     <p>Kintamųjų pavadinimų keitimas naudingas, kai siejant skirtingas JS bylas jose pasitaiko vienodo pavadinimo išvedamų kintamųjų.</p>
-    <a href="./nodeKursas4.html">Sekantis >>></a>
+
+    <a href="./nodeKursas2.html"><<< Atgal</a>---------<a href="./nodeKursas4.html">Pirmyn >>></a>
+
 </body>
 </html>

@@ -10,7 +10,7 @@
     </style>
 </head>
 <body onload="myScript ()">
-    <h1>Darbas su katalogų ir bylų sistema</h1>
+    <h1>Darbas su katalogų ir bylų sistema (sinchroninis)</h1>
 
     <p>Node yra patogi darbui su katalogais ir bylomis. Su Node galima sukurti katalogus, bylas, perskaityti bylas.</p>
     <p>Node gali dirbti su bylų sistema dviem būdais:</p>
@@ -19,7 +19,7 @@
         <li>asinchroniniu</li>
     </ul>
     <p>Iš pradžių susiekime modulį „fs“, kuris skirtas darbui su bylų sistema (toliau naudojama ta pati <em>pirmas.js</em> byla):</p>
-    const myFs = require("fs");
+    <em>const myFs = require("fs");</em>
     <h2>Sinchroninis katalogų kūrimas</h2>
     <p>Su <em>.mkdirSync</em> metodu galime sukurti naują katalogą. Žodis <em>Sync</em> rodo, kad darysime sinchroniškai:</p>
     <em>myFs.mkdirSync("naujasKatalogas");<br>
@@ -36,8 +36,19 @@
     <p>Panašiai galime sukurti katalogą viename iš vidinių katalogų:</p>
     <em>!( myFs.existsSync("naujasKatalogas/kitasKatalogas") )?<br>
         myFs.mkdirSync("naujasKatalogas/kitasKatalogas"):<br>
-        console.log("Katalogas jau yra");</em><br>
+        console.log("Katalogas jau yra");</em>
+
+        <h2>Sinchroninis bylų kūrimas ir skaitymas</h2>
+
+        <p>Su <em>.writeFileSync</em> metodu galima sukurti naują bylą:</p>
+        <em>myFs.writeFileSync("testoByla.txt", "Tai yra testo bylos tekstas");</em>
+        <p>Po JS bylos paleidimo jūs turėtumėte pamatyti atsiradusią bylą pavadinimu „testoByla.txt“ jūsų darbiniame kataloge. Ją patikrinę turėtumėte rasti tekstą „Tai yra testo bylos tekstas“.</p>
     
-    <a href="./nodeKursas6.html">Sekantis >>></a>
+        <p>Šią bylą galime perskaityti su <em>.readFileSync</em> metodu:</p>
+        <em>console.log( myFs.readFileSync("testoByla.txt") );</em>
+        <p>Taip skaitant bylą terminale bus išvesti teksto simbolių UTF-8 kodai. Papildžius argumentu "utf8", bylos tekstas bus išvestas raidiniais simboliais:</p>
+        <em>console.log( myFs.readFileSync("testoByla.txt", "utf8") );</em>
+    <p>Kaip ir kuriant katalogus galima parašyti programą, kuri patikrins, ar yra byla. O, jei jos nėra, tokią sukurs. Jei tokia byla yra, Node klaidos neišves, nes tokiu atveju byla yra perrašoma.</p>
+    <a href="./nodeKursas4.html"><<< Atgal</a>---------<a href="./nodeKursas6.html">Pirmyn >>></a>
 </body>
 </html>

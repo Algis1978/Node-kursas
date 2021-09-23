@@ -15,10 +15,10 @@
     <p>Node moduliai (<em>module</em>) yra kitos JS bylos, kurias galima panaudoti kuriant savo programas. Jie gali būti įdiegti kartu su Node paketu, susikurti savo arba sukurti kitų programuotojų. Pastaruoju atveju šios bylos vadinamos bibliotekomis (<em>library</em>) arba paketais (<em>package</em>).</p>
 
     <h2>NPM inicijavimas</h2>
-    <p>Įdiegti Node modulius galima su Node paketų valdikliu NPM (Node Package Manager)</p>
+    <p>Įdiegti Node modulius galima su Node paketų valdikliu NPM (anglų k. <em>Node Package Manager</em>).</p>
     <p>Inicijuokite NPM veikimą su komanda terminalo eilutėje:</p>
     <em>npm init</em>
-    <p>Nuspauskite 'Enter' ir jums terminale bus pasiūlyta įvesti jūsų projekto savybių vertes. Jei nenorite į tai gilintis (pvz., jei neruošiate savo projekto komerciniam naudojimui), ties kiekvienu punktu nuspauskite 'Enter'. Trumpesnis kelias inicijuoti NPM yra surinkus kodą <em>npm init -y</em></p>
+    <p>Nuspauskite 'Enter' ir jums terminale bus pasiūlyta įvesti jūsų projekto savybių vertes. Jei nenorite į tai gilintis (pvz., jei neruošiate savo projekto komerciniam naudojimui), ties kiekvienu punktu nuspauskite 'Enter'. Trumpesnis kelias inicijuoti NPM yra surinkus kodą <em>npm init -y.</em></p>
     <p>Po šios komandos jūsų darbo kataloge atsiras byla <em>package.json</em>, kurioje bus surašytos jūsų projekto savybės.</p>
 
     <h2>Node modulių įdiegimas ir susiejimas su JS byla</h2>
@@ -32,13 +32,13 @@
 
     <p>Moduliai su JS byla susiejami su <em>require</em> raktažodžiu. Surinkite šį kodą bylos <em>pirmas.js</em> kodo eilutėje ir išsaugokite bylą:</p>
     <em>const myPath= require("path");</em>
-    <p>Šiuo kodu kintamajam „myPath“ buvo priskirtos modulio „path“ savybės, kurias galima naudoti tolimesniame kode</p>
+    <p>Šiuo kodu kintamajam „myPath“ buvo priskirtos modulio „path“ savybės, kurias galima naudoti tolimesniame kode.</p>
 
     <h2>Modulio savybių panaudojimas</h2>
     <p>Modulis „path“ skirtas darbui su katalogų ir bylų pavadinimais. Pavyzdžiui, jo savybė <em>.extname</em> grąžina bylos tipo praplėtimo užrašymą. Toliau byloje <em>pirmas.js</em> surinkite šį kodą:</p>
     <em>const byla = "pirmas.html";<br>
     console.log(myPath.extname(byla));</em>
-    <p>Patikrinkite rezultatą terminalo lange su komanda <em>node pirmas.js</em>. Jums turėtų būti parodytas rezultatas: <em>.html</em></p>
+    <p>Patikrinkite rezultatą terminalo lange su komanda <em>node pirmas.js</em>. Jums turėtų būti parodytas rezultatas: <em>.html.</em></p>
     <p>Kaip jūs pastebėjote, dirbant su Node reikia šokinėti tarp JS bylos kodo ir terminalo langų redaktoriuje, tad turėkite abu langus šalia vienas kito savo vaizdo monitoriuje.</p>
     <p>Taipogi, kad kiekvieną kartą nerinkti tos pačios komandos terminalo lange, redaktoriai turi trumpojo iššaukimo komandą, kuri priklauo nuo redaktoriaus nustatymų, pvz., VS Code redaktoriuje tai yra rodyklėlės „aukštyn“ klavišo nuspaudimas, kuris jums išves paskutinę komandą, šiuo atveju <em>node pirmas.js</em>.</p>
     
@@ -51,6 +51,7 @@
     </p>
     <h2>Apibendrinimas</h2>
     <p>Node moduliai leidžia efektyviau naudotis JavaScript programavimu. Keičiantis projektais nebūtina persiųsti Node modulių. Byloje <em>package.json</em> yra saugoma informacija apie projektui reikalingus Node modulius. Juos galima atsisiųsti iš interneto ir įdiegti su NPM.</p> 
-    <a href="./nodeKursas3.html">Sekantis >>></a>
+
+    <a href="./nodeKursas.html"><<< Atgal</a>---------<a href="./nodeKursas3.html">Pirmyn >>></a>
 </body>
 </html>
