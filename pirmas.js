@@ -43,3 +43,13 @@ function bylosSkaitytuvas (byla) {
     return null;}
 
     bylosSkaitytuvas ("blabla.html");
+
+    const pabaigosTekstas = () => console.log ("Tai funkcijos operacijos pabaiga");
+    
+    const testoKatalogas = "TestoKatalogas";
+    const callFunkcija = () => {console.log ("Go Away!!")};
+    const asinchroninisKatalogas = (katalogas, callbackFunkcija) => {
+        myFs.mkdir(katalogas, callbackFunkcija);
+        console.log("Teksto eilutė");}
+
+        asinchroninisKatalogas(testoKatalogas, callFunkcija);

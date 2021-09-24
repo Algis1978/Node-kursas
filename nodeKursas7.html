@@ -10,16 +10,29 @@
     </style>
 </head>
 <body onload="myScript ()">
-    <h1>Darbas su katalogų ir bylų sistema (sinchroninis)</h1>
+    <h1>Asinchroninis Node darbas</h1>
 
-    <p>Node yra patogi darbui su katalogais ir bylomis. Su Node galima sukurti katalogus, bylas, perskaityti bylas.</p>
-    <p>Node gali dirbti su bylų sistema dviem būdais:</p>
+    <p>Sinchroniškai vykdant programas jos dirba paeiliui. Yra nepraktiška, kai vykdant vieną programą, kitos laukia jos įvykdymo. Asinchroninis darbas leidžia to išvengti, optimaliau panaudoti kompiuterio resursus ir nelaukti vienos programos rezultato tam, kad gauti kitų programų rezultatus. Tai svarbu tais atvejais, kai programų vykdymas užtrunka.</p>
+    <p>Asinchroniškai Node gali dirbti dviem būdais:</p>
     <ul>
-        <li>sinchroniniu;</li>
-        <li>asinchroniniu;</li>
+        <li>naudodama į funkcijos argumentą perduodamas funkcijas, kurios iškviečiamos vėliau kodo eigoje, <em>callback</em> funkcijas;</li>
+        <li>naudodama <em>Promise</em> objektą;</li>
     </ul>
-    <p>Iš pradžių susiekime modulį „fs“, kuris skirtas darbui su bylų sistema (toliau naudojama ta pati <em>pirmas.js</em> byla):</p>
-    <em>const myFs = require("fs");</em>
+    <h2>Darbas su <em>callback</em> funkcijomis</h2>
+    <p>Darbui asinchroniškai pasinaudosime tuo pačiu „fs“ moduliu, kuris turi atitinkamas funkcijas be <em>Sync</em> priedėlio.</p>
+    <p>Iš pradžių sukurkime funkcijos kintamąjį, kuris bus panaudotas vėliau. Pavyzdžui, turintį tik paprastą <em>console.log()</em> operacija:</p>
+
+    <em>const pabaigosTekstas = () => console.log ("Tai funkcijos operacijos pabaiga");</em>
+
+    <p>Po to sukurkime funkciją, kuri sukurs katalogą asinchroniniu būdu ir <em>callback</em> funkcijos vietoje iškvies kintamąjį „pabaigosTekstas“:</p> 
+    
+    <em>const testoKatalogas = "TestoKatalogas";<br>
+    const asinchroninisKatalogas = (katalogas, callbackFunkcija) => {<br>
+        myFs.mkdir(katalogas, callbackFunkcija);<br>
+        console.log("Teksto eilutė");}</em>
+    <p>Įvykdžius funkciją jūs pastebėsit, kad darbiniame kataloge atsirado katalogas pavadinimu „TestoKatalogas“. Terminale užrašas "Teksto eilutė" atsirado aukščiau užrašo "Tai funkcijos operacijos pabaiga", nes programai prireikė daugiau laiko sukurti katalogą ir iškviesti <em>callbackFunkcija</em>, nei išvesti užrašą "Teksto eilutė" į terminalą.</p>
+
+    <p>Po to sukurkime funkciją, kuri sukurs katalogą asinchroniniu būd </p>
     <h2>Sinchroninis katalogų kūrimas</h2>
     <p>Su <em>.mkdirSync</em> metodu galime sukurti naują katalogą. Žodis <em>Sync</em> rodo, kad darysime sinchroniškai:</p>
     <em>myFs.mkdirSync("naujasKatalogas");<br>
@@ -50,6 +63,6 @@
         <em>console.log( myFs.readFileSync("testoByla.txt", "utf8") );</em>
     <p>Kaip ir kuriant katalogus galima parašyti programą, kuri patikrins, ar yra byla. O, jei jos nėra, tokią sukurs. Jei tokia byla yra, Node klaidos neišves, nes tokiu atveju byla yra perrašoma.</p>
 
-    <a href="./nodeKursas4.html"><<< Atgal</a>---------<a href="./nodeKursas6.html">Pirmyn >>></a>
+    <a href="./nodeKursas6.html"><<< Atgal</a>---------<a href="./nodeKursas8.html">Pirmyn >>></a>
 </body>
 </html>
