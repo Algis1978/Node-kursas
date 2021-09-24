@@ -12,10 +12,49 @@
 <body onload="myScript ()">
     <h1>Klaidų ieškojimas su <em>try...catch</em></h1>
 
-    <p>Su <em>.writeFileSync</em> metodu galima sukurti naują bylą:</p><br>
-    <em>myFs.writeFileSync("testoByla.txt", "Tai yra testo bylos tekstas");</em>
-    <p>Po JS bylos paleidimo jūs turėtumėte pamatyti atsiradusią bylą pavadinimu „testoByla.txt“ jūsų darbiniame kataloge. Ją patikrinę turėtumėte rasti tekstą „Tai yra testo bylos tekstas“.</p>
-    
+    <p>Klaidų radimui JS turi įdiegtą <em>try...catch</em> (iš anglų. k. „tikrinti“ ir „pagauti“) steitmentą, kuris ieško kode klaidų ir jas radus galima nuspręsti, ką su jomis daryti.</p>
+    <h2>Dirbtinės klaidos sukūrimas</h2>
+    <p>Klaidos metimui JS įdiegtas <em>throw</em> (iš anglų. k. „mesti“) steitmentas. Šiuo steitmentu sukuriamas dirbtinis klaidos pranešimas.</p>
+    <p>JS įdiegtas globalus <em>Error</em> objektas, kuriuo galima sukurti klaidos objektą:</p>
+    <em>const klaida = new Error ("Tai yra klaida");<br>
+    console.log( typeof(klaida) )</em>
+    <p>Surinkite aukštesnį kodą ir po to meskite dirbtinę programos klaidą:</p>
+    <em>throw klaida<br>
+    console.log("Tai programos tęsinys");</em>
+    <p>Vykdant programą klaidos pranešimas bus išvestas terminale. Jūs pastebėsit, kad tolimesnis programos kodas nebevykdomas ir užrašo "Tai programos tęsinys" nebepamatysite.</p>
+    <p>Taip yra todėl, kad programai nėra nurodyta, ką daryti su joje pasitaikiusia klaida. Tam pagelbės <em>try...catch</em> steitmentas.</p>
+
+    <h2>Steitmento <em>try...catch</em> panaudojimas</h2>
+    <p>Meskime aukščiau sukurtą klaidą į <em>try...catch</em> steitmentą:</p>
+    <em>try {throw klaida;}<br>
+        catch (klaidosObjektas) {console.log(klaidosObjektas);}<br>
+        console.log("Tai programos tęsinys");</em>
+    <p>Įvykdžius šią programą jūs pamatysite klaidos pranešimą terminale ir taip pat pamatysite, kad tolimesnis programos kodas yra vykdomas.</p>
+
+    <h2>Steitmento <em>try...catch</em> panaudojimo pavyzdys</h2>
+
+    <p>Sukurkime neegzistuojančią tekstinę bylą ir parašykime programą, kuri ją perskaitytų. Ji negalės to padaryti ir mes klaidą.</p>
+
+    <em>const klaidosByla = "klaidosByla.txt";<br>
+        const klaidosBylosTekstas = myFs.readFileSync(klaidosByla, "utf8");<br>
+        console.log(klaidosBylosTekstas);</em>
+
+    <p>Įvykdžius šią programą terminale bus išvestas klaidos pranešimas ''no such file or directory'' („nėra tokios bylos arba katalogo“).</p>
+
+    <p>Praktinio pritaikymo vardan parašykime funkciją, kuri perskaitytų bylos tekstą ir išvestų jos turinį į terminalą. Klaidos skaityme atveju išvestų klaidos pranešimą ir grąžintų <em>null</em> objektą:</p>
+    <em>function bylosSkaitytuvas (byla) {<br>
+        try{ const bylosTekstas = myFs.readFileSync(byla, "utf8");<br>
+        console.log("Bylos tekstas:");<br>
+        return bylosTekstas;}<br>
+        catch (err) {<br>
+            console.log("Klaida bylos skaityme");<br>
+            console.log(err);}<br>
+        return null;}</em>
+        <p>Dabar šią funkciją galima naudoti su bylomis. Savarankiškai sukurkite savo bylas ir leiskite su programa <em>bylosSkaitytuvas()</em> jas perskaityti.</p>
+        <p>Jūs pastebėsit, kad klaidos objektą funkcijos kode nurodo žodelis <em>err</em>. Yra įprasta JS kode taip žymėti klaidos objektą (iš anglų k. <em>error</em> reiškia „klaida“).</p>
+        <h2>Apibendrinimas</h2>
+        <p>Steitmentas <em>try...catch</em> leidžia kontroliuoti klaidas kode ir nustatyti, ką joms pasitaikius programai daryti.</p>
+        
         <a href="./nodeKursas5.html"><<< Atgal</a>---------<a href="./nodeKursas7.html">Pirmyn >>></a>
 </body>
 </html>

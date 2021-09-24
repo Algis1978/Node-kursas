@@ -25,4 +25,21 @@ myFs.writeFileSync("testoByla.txt", "Tai yra testo bylos tekstas");
 console.log( myFs.readFileSync("testoByla.txt") );
 console.log( myFs.readFileSync("testoByla.txt", "utf8") );
 
+const klaida = new Error ("Tai yra klaida");
+console.log( typeof(klaida) );
 
+try {throw klaida;}
+catch (klaidosObjektas) {console.log(klaidosObjektas);}
+console.log("Tai programos tęsinys");
+
+const klaidosByla = "klaidosByla.txt";
+function bylosSkaitytuvas (byla) {
+    try{ const bylosTekstas = myFs.readFileSync(byla, "utf8");
+    console.log("Bylos tekstas");
+    return bylosTekstas;}
+    catch (err) {
+        console.log("Klaida bylos skaityme");
+        console.log(err);}
+    return null;}
+
+    bylosSkaitytuvas ("blabla.html");
