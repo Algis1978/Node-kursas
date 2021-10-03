@@ -18,9 +18,9 @@
         <li>naudodama į funkcijos argumentą perduodamas funkcijas, kurios iškviečiamos vėliau kodo eigoje, <em>callback</em> funkcijas;</li>
         <li>naudodama <em>Promise</em> objektą;</li>
     </ul>
-    <h2>Darbas su <em>callback</em> funkcijomis</h2>
+    <h2>Darbas su <em>callback</em> funkcijomis:</h2>
     <p>Darbui asinchroniškai pasinaudosime tuo pačiu „fs“ moduliu, kuris turi atitinkamas funkcijas be <em>Sync</em> priedėlio.</p>
-    <p>Iš pradžių sukurkime funkcijos kintamąjį, kuris bus panaudotas vėliau. Pavyzdžui, turintį tik paprastą <em>console.log()</em> operacija:</p>
+    <p>Iš pradžių sukurkime funkcijos kintamąjį, kuris bus panaudotas vėliau. Pavyzdžiui, turintį tik paprastą <em>console.log()</em> operaciją:</p>
 
     <em>const pabaigosTekstas = () => console.log ("Tai funkcijos operacijos pabaiga");</em>
 
@@ -32,36 +32,16 @@
         console.log("Teksto eilutė");}</em>
     <p>Įvykdžius funkciją jūs pastebėsit, kad darbiniame kataloge atsirado katalogas pavadinimu „TestoKatalogas“. Terminale užrašas "Teksto eilutė" atsirado aukščiau užrašo "Tai funkcijos operacijos pabaiga", nes programai prireikė daugiau laiko sukurti katalogą ir iškviesti <em>callbackFunkcija</em>, nei išvesti užrašą "Teksto eilutė" į terminalą.</p>
 
-    <p>Po to sukurkime funkciją, kuri sukurs katalogą asinchroniniu būd </p>
-    <h2>Sinchroninis katalogų kūrimas</h2>
-    <p>Su <em>.mkdirSync</em> metodu galime sukurti naują katalogą. Žodis <em>Sync</em> rodo, kad darysime sinchroniškai:</p>
-    <em>myFs.mkdirSync("naujasKatalogas");<br>
-        console.log( myFs.existsSync("naujasKatalogas") )</em>
-    <p>Po JS bylos <em>pirmas.js</em> paleidimo terminales (su komanda <em>node pirmas.js</em> jūs turėtumėte pamatyti atsiradusį katalogą pavadinimu „naujasKatalogas“ jūsų darbiniame kataloge.</p>
-    <p>Paleidus programą iš naujo terminale bus matoma klaida, nes toks katalogas jau sukurtas, tad ištrinkite aukštesnę eilutę.</p>
-    <p>Dabar galim patikrinti, ar šis katalogas yra su <em>.existsSync</em> metodu:</p>
-    <em>console.log( myFs.existsSync("naujasKatalogas") );</em>
-    <p>Paleidus programą jums turėtų būti išvesta vertė <em>true</em>.</p>
-    <p>Galime parašyti trumpą programą, kuri patikrins, ar katalogas yra. Ir, jei nėra, sukurs jį, o, jei yra, išves atitinkamą užrašą:</p>
-    <em>!( myFs.existsSync("kitasKatalogas") )?<br>
-        myFs.mkdirSync("kitasKatalogas"):<br>
-        console.log("Katalogas jau yra");</em>
-    <p>Panašiai galime sukurti katalogą viename iš vidinių katalogų:</p>
-    <em>!( myFs.existsSync("naujasKatalogas/kitasKatalogas") )?<br>
-        myFs.mkdirSync("naujasKatalogas/kitasKatalogas"):<br>
-        console.log("Katalogas jau yra");</em>
+    <p>Su <em>callback</em> funkcija galima pagauti proceso klaidas. ai skiriasi nuo <em>try...catch</em>. Nesant klaidos JS grąžins <em>null</em> objektą. Sukurkime <em>callback</em> funkciją, kuri išvestų klaidos objektą į konsolę ir sukurkime dar vieną katalogą:</p>
 
-        <h2>Sinchroninis bylų kūrimas ir skaitymas</h2>
+    <em>const callback1 = (err) => {
+        console.log(err);
+    }
+    const testoKatalogas2 = "TestoKatalogas2";
+    myFs.mkdir (testoKatalogas2, callback1);</em>
 
-        <p>Su <em>.writeFileSync</em> metodu galima sukurti naują bylą:</p>
-        <em>myFs.writeFileSync("testoByla.txt", "Tai yra testo bylos tekstas");</em>
-        <p>Po JS bylos paleidimo jūs turėtumėte pamatyti atsiradusią bylą pavadinimu „testoByla.txt“ jūsų darbiniame kataloge. Ją patikrinę turėtumėte rasti tekstą „Tai yra testo bylos tekstas“.</p>
-    
-        <p>Šią bylą galime perskaityti su <em>.readFileSync</em> metodu:</p>
-        <em>console.log( myFs.readFileSync("testoByla.txt") );</em>
-        <p>Taip skaitant bylą terminale bus išvesti teksto simbolių UTF-8 kodai. Papildžius argumentu "utf8", bylos tekstas bus išvestas raidiniais simboliais:</p>
-        <em>console.log( myFs.readFileSync("testoByla.txt", "utf8") );</em>
-    <p>Kaip ir kuriant katalogus galima parašyti programą, kuri patikrins, ar yra byla. O, jei jos nėra, tokią sukurs. Jei tokia byla yra, Node klaidos neišves, nes tokiu atveju byla yra perrašoma.</p>
+    <p>Paleidus prigramą pirmą kartą bus sukurtas katalogas pavadinimu „TestoKatalogas2“ ir konsolėje pavaizduotas <em>null</em> objektas.</p> Paleidus programą antrą kartą konsolėje bus išmesta klaida.</p>
+
 
     <a href="./nodeKursas6.html"><<< Atgal</a>---------<a href="./nodeKursas8.html">Pirmyn >>></a>
 </body>

@@ -53,3 +53,12 @@ function bylosSkaitytuvas (byla) {
         console.log("Teksto eilutė");}
 
         asinchroninisKatalogas(testoKatalogas, callFunkcija);
+
+    const callback1 = (bambam) => {
+        console.log(bambam + "la-la-la");
+    }
+const testoKatalogas2 = "TestoKatalogas2";
+testF = () => {
+    const bambam = "bam-bam";
+}
+myFs.mkdir (testoKatalogas2, callback1);
