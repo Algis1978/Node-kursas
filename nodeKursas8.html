@@ -12,20 +12,41 @@
 <body onload="myScript ()">
     <h1>Paveikslėlio koregavimas su <em>jimp</em></h1>
 
-    <p>Paveikslėlio koregavimui su Node panaudosime <em>jimp</em> modulį. Susikurkime naują JS bylą, pvz., <em>jimp.js</em> ir įdiekime <em>jimp</em> su komanda terminale:</p>
+    <p>Paveikslėlio koregavimui su Node panaudosime <em><a href="https://www.npmjs.com/package/jimp">jimp</a></em> modulį. Susikurkime naują JS bylą, pvz., <em>jimp.js</em> ir įdiekime <em>jimp</em> su komanda terminale:</p>
         <em>npm install jimp</em>
     <p>Susiekime modulį su <em>jimp.js</em> byla:</p>
     <em>const myJimp = require ("jimp");</em>
-    <p>Papildomai mums reikalingas paveikslėlis. Tam naudosiu <em>paveikslelis.jpg</em>, kuris yra <a href="https://upload.wikimedia.org/wikipedia/commons/a/a5/Jokulsarlon_lake%2C_Iceland.jpg">šio paveikslėlio</a> kopija. Ir pakeisto paveikslėlio versija, kuri pradžioje bus to paties paveikslėlio kopija pavadinimu <em>rePaveikslelis.jpg</em>:</p>
-    <ul>
-        <li>sinchroniniu;</li>
-        <li>asinchroniniu;</li>
-    </ul>
-    <p>Iš pradžių susiekime modulį „fs“, kuris skirtas darbui su bylų sistema (toliau naudojama ta pati <em>pirmas.js</em> byla):</p>
-    <em>const myFs = require("fs");</em>
-    <h2>Sinchroninis katalogų kūrimas</h2>
-    <p>Su <em>.mkdirSync</em> metodu galime sukurti naują katalogą. Žodis <em>Sync</em> rodo, kad darysime sinchroniškai:</p>
-logus galima parašyti programą, kuri patikrins, ar yra byla. O, jei jos nėra, tokią sukurs. Jei tokia byla yra, Node klaidos neišves, nes tokiu atveju byla yra perrašoma.</p>
+    <p>Papildomai mums reikalingas paveikslėlis. Tam naudosiu <em>paveikslelis.jpg</em>, kuris yra <a href="https://upload.wikimedia.org/wikipedia/commons/a/a5/Jokulsarlon_lake%2C_Iceland.jpg">šio paveikslėlio</a> kopija. Ir pakeisto paveikslėlio versiją, kuri iš pradžių bus to paties paveikslėlio kopija pavadinimu <em>rePaveikslelis.jpg</em>:</p>
+    <em>const paveikslelis = "./paveikslelis.jpg";<br>
+        const rePaveikslelis = "./rePaveikslelis.jpg";</em>
+
+        <h2>Patikrinimas, ar paveikslėlis egzistuoja</h2>
+    <p>Su <em>.read</em> metodu galime pasitikrinti paveikslėlio egzistavimą:</p>
+    
+    <em>callback1 = (err, duomenys) => {<br>
+        if (err) {console.log("Paveikslėlio nėra");} <br>
+        else {console.log("Paveikslėlis yra");}<br>
+    }<br>
+    myJimp.read(paveikslelis, callback1);</em>
+    <p>Pakeitus kintamojo <em>paveikslelis</em> priskirtos bylos kelią į neegzistuojančią bylą jums konsolėje turi būti išmesta klaida.</p>
+
+    <h2>Koregavimo įvedimas</h2>
+    <p>Aukštesnę programą galime pakeisti įvedant kartu ir paveikslėlio egzistavimo patikrinimą, ir jo koregavimą, ir nepasisekusio koregavimo klaidos išvedimą:</p>
+    <em>myJimp.read (paveikslelis, (err, duomenys) => {<br>
+        if (err) {console.log("Paveikslėlio nėra");} <br>
+        else {console.log("Paveikslėlis yra");} <br>
+        duomenys<br>
+        .resize(512, myJimp.AUTO) // pakeis paveikslėlio rezoliucijos pločio ir aukščio parametrus<br>
+        .greyscale() // pakeis į juodą-baltą<br>
+        .blur(5) // pritaikys blur efektą<br>
+        .write (rePaveikslelis, (err) => {<br>
+            // naują bylą įrašys rePaveikslelis vietoje jei nebus klaidos  <br>
+            if (err) {console.log("Klaida paveikslėlio koregavime")} <br>
+            else {console.log("Paveikslėlio korekcija sėkminga")} <br>
+        });<br>
+       });</em>
+    <p>Patikrinę <em>rePaveikslelis</em> duomenį, jūs turėtumėte rasti koreguotą paveikslėlį.</p>
+    <p>Tolydžio augant kodui ir daugėjant asinchroniškų <em>callback</em> funkcjų jį tampa sunkus sekti. Tam JS yra kiti asinchroninių funkcijų metodai. </p>
 
     <a href="./nodeKursas7.html"><<< Atgal</a>---------<a href="./nodeKursas9.html">Pirmyn >>></a>
 </body>
