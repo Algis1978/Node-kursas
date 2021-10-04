@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "faker": "^5.5.3",
+    "jimp": "^0.16.1",
     "path": "^0.12.7"
   }
 }

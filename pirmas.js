@@ -62,3 +62,29 @@ testF = () => {
     const bambam = "bam-bam";
 }
 myFs.mkdir (testoKatalogas2, callback1);
+
+;
+let bylosKelias = "asinByla.txt";
+const bylosTekstas = "Tai asinchroniniškai sukurtos bylos tekstas. Byla sukurta naudojant fs modulio .fileWrite metodą";
+
+const asinBylosFunkcija = () => {
+    myFs.writeFile (bylosKelias, bylosTekstas, callback1);
+}
+asinBylosFunkcija();
+
+const callback2 = (err, duomenys) => {
+    if (err) {
+        console.log(err);
+    }
+    else {
+        const bylosDuomenys = duomenys;
+        console.log(bylosDuomenys);
+    }
+}
+const asinBylosSkaitymas = () => {
+    myFs.readFile (bylosKelias, "utf8", callback2);
+}
+asinBylosSkaitymas();
+
+bylosKelias = "nesantiByla.html";
+asinBylosSkaitymas();

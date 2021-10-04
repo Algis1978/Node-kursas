@@ -1,0 +1,1 @@
+Tai asinchroniniškai sukurtos bylos tekstas. Byla sukurta naudojant fs modulio .fileWrite metodą
