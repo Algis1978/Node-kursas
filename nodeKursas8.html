@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Node aštunta pamoka</title>
+    <style>
+
+    </style>
+</head>
+<body onload="myScript ()">
+    <h1>Paveikslėlio koregavimas su <em>jimp</em></h1>
+
+    <p>Paveikslėlio koregavimui su Node panaudosime <em>jimp</em> modulį. Susikurkime naują JS bylą, pvz., <em>jimp.js</em> ir įdiekime <em>jimp</em> su komanda terminale:</p>
+        <em>npm install jimp</em>
+    <p>Susiekime modulį su <em>jimp.js</em> byla:</p>
+    <em>const myJimp = require ("jimp");</em>
+    <p>Papildomai mums reikalingas paveikslėlis. Tam naudosiu <em>paveikslelis.jpg</em>, kuris yra <a href="https://upload.wikimedia.org/wikipedia/commons/a/a5/Jokulsarlon_lake%2C_Iceland.jpg">šio paveikslėlio</a> kopija. Ir pakeisto paveikslėlio versija, kuri pradžioje bus to paties paveikslėlio kopija pavadinimu <em>rePaveikslelis.jpg</em>:</p>
+    <ul>
+        <li>sinchroniniu;</li>
+        <li>asinchroniniu;</li>
+    </ul>
+    <p>Iš pradžių susiekime modulį „fs“, kuris skirtas darbui su bylų sistema (toliau naudojama ta pati <em>pirmas.js</em> byla):</p>
+    <em>const myFs = require("fs");</em>
+    <h2>Sinchroninis katalogų kūrimas</h2>
+    <p>Su <em>.mkdirSync</em> metodu galime sukurti naują katalogą. Žodis <em>Sync</em> rodo, kad darysime sinchroniškai:</p>
+logus galima parašyti programą, kuri patikrins, ar yra byla. O, jei jos nėra, tokią sukurs. Jei tokia byla yra, Node klaidos neišves, nes tokiu atveju byla yra perrašoma.</p>
+
+    <a href="./nodeKursas7.html"><<< Atgal</a>---------<a href="./nodeKursas9.html">Pirmyn >>></a>
+</body>
+</html>
