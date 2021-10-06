@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Node devinta pamoka</title>
+    <style>
+
+    </style>
+</head>
+<body onload="myScript ()">
+    <h1>Asinchroninis darbas su <em>Promise</em> objektu</h1>
+
+    <p>JS objektas <em>Promise</em> parodo asinchroninės funkcijos būseną ir vertę.</p> 
+    <p>Pradėjusi veikti asinchroninė funkcija grąžina laukimo (<em>pending</em>) būsenos <em>Promise</em> objektą. Baigus asichroninę operaciją <em>Promise</em> (pažado) objektas išsprendžiamas (<em>resolve</em>) arba atšaukiamas (<em>reject</em>). Objektą <em>Promise</em> galima sukurti su <em>new</em> raktažodžiu, tačiau šios operacijos naudotojai paprastai nedaro, kadangi asinchroninės funkcijos pačios jį grąžina:</p>
+    <em>let promise = new Promise((resolve, reject) => {});<br>
+        console.log(promise);</em>
+
+    <p><em>Promise</em> metodas <em>.then</em> priima įvykdytos funkcijos rezultatą, metodas <em>.catch</em> priima funkcijos klaidą.</p>
+
+
+    <a href="./nodeKursas8.html"><<< Atgal</a>---------<a href="./nodeKursas10.html">Pirmyn >>></a>
+</body>
+</html>

@@ -22,7 +22,7 @@
     <p>Kelis kintamuosius galima sublokuoti:</p>
     <em>module.exports={sudetis, atimtis};</em>
         <h2>Duomenų priėmimas</h2>
-    <p>Priėmimo byloje <em>pirmas.js</em> nurodau išvestus duomenis priimti su raktažodžiu <em>require</em> ir nurodant kelią iki JS bylos. Atkeipkit dėmesį, kad kelias nurodomas tarp "" tekstinių kabučių.</p>
+    <p>Priėmimo byloje <em>pirmas.js</em> nurodau išvestus duomenis priimti su funkcija <em>require</em> ir nurodant kelią iki JS bylos. Atkeipkit dėmesį, kad kelias nurodomas tarp "" tekstinių kabučių.</p>
 
     <em>const myMat = require("./mat.js");<br>
     console.log( myMat.sudetis(6, 4) );<br>
@@ -46,6 +46,31 @@
         console.log( treciaAtimtis(6, 4) );</em><br>
     <p>Kintamųjų pavadinimų keitimas naudingas, kai siejant skirtingas JS bylas jose pasitaiko vienodo pavadinimo išvedamų kintamųjų.</p>
 
+    <h2>Duomenų keitimasis pagal ES6</h2>
+    <p>2015 m. su ES6 pakeitimu įvesta kita sintaksė duomenų išvedimui ir priėmimui, kuri būtų suderinama tiek su naršyklėmis, tiek su Node paketu.</p>
+
+    Duomenis išvedami su <em>export</em> raktažodžiu. Su raktažodžiu <em>as</em> 
+    
+
+    Duomenys priimami su <em>import * as obj from ""</em> eilute, kur * nurodo visus išvedamus kintamuosius kaip objekto "obj" savybes.
+
+    Arba galim panaudoti išskleidimą:
+    import {} from "";
+
+    Arba importuoti atskirus kintamuosius:
+
+    import k from "";
+
+    <p>Išvesti galima su <em>default</em> raktažodžiu vieną kintamąjį. Jis bus priimtas su <em>default</em> pavadinimu bendro priėmimo atveju arba su priskirtu pavadinimu atskiru atveju.</p>
+
+    <em>import k from "";</em>
+
+    Tiek išvedimo, tiek priėmimo metu galima pakeisti kintamojo pavadinimą su <em>as</em> raktažodžiu:
+     <em>export sudetis as kitaSudetis;<br>
+    import { kitasudetis as sudetis }</em>
+
+    <p>ES6 sintaksė leidžia priimti kintamuosius iš cjs sistemos bylos, bet ne atvirkščiai: cjs bylos nepriims kintamųjų iš mjs bylos.</p>
+ 
     <a href="./nodeKursas2.html"><<< Atgal</a>---------<a href="./nodeKursas4.html">Pirmyn >>></a>
 
 </body>

@@ -30,3 +30,9 @@ myJimp.read(paveikslelis, callback1);
         } else {console.log("Paveikslėlio korekcija sėkminga")}
         });
    });
+
+  let promise = new Promise((resolve, reject) => {});
+  console.log(promise);
+
+  export promise;
+   
