@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Node serveris</title>
+</head>
+<body>
+    <h1>Serverio sukūrimas</h1>
+    <p>Atskirame kataloge susikurkime naują projektą (inicijuokime su <em>npm install</em> ir <em>npm init</em> komandomis. Byloje <em>package.json</em> įveskime "type" vertę "module". Po to susikurkime JS bylą, pvz., <em>serveris.js</em> ir su ja ssusiekime <em>Net</em> modulį:</p>
+    <em>import * as net from "net";</em>
+    <p>Po to sukurkime serverį su komanda:</p>
+
+    <p>URL adreso perskaitymas</p>
+    <em>protokolas://host:port/path?query-string#fragment-id</em>
+    <p>Kur prisijungimo protokolas (http, https, ftp, ssh)</p>
+    <p>host - svetainės serveris (www.adresas.lt)</p>
+    <p>port - prisijungimo taškas (3000, 80, 443 ir kt.)</p>
+    <p>path - specifinis resursas, kurį nori pasiekti užklausėjas,</p>
+    <p>query-string - papildomi duomenys serverio pusės programoms(skriptams).</p>
+    <p>fragment-id - nurodo specifinę vietą puslapyje, kurią reikia pasiekti.</p>
+
+    <p>Nurodžius <em>IP:porto nr.</em> (192.162.3.12:8080), serveris pasiekiamas iš išorės.</p>
+    <p>socket.write(k, "utf8") nusiųs atsakymą į užklausą. \r\n kodas tekste nurodo naują eilutę.</p>
+</body>
+</html>
